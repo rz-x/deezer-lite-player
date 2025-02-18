@@ -1,5 +1,5 @@
 {
-    "name": "deezer-Lite-player",
+    "name": "deezer-lite-player",
     "version": "1.0.0",
     "description": "A electron built deezer player",
     "main": "app.js",

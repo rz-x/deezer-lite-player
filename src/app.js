@@ -33,7 +33,7 @@ async function createWin() {
         } catch (err) {
             console.warn("Database error:", err.message);
         }
-    })(); // Closes async database call
+    })();
 }
 
 
