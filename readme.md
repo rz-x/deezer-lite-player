@@ -1,6 +1,6 @@
 ## Deezer Lite Player
 
-CPU optimized High Fidelity Music Player
+CPU optimized (High Fidelity) Music Player
 
 Deezer Lite Player is an optimized Electron-based desktop player for Deezer, designed for audiophiles and performance-conscious users on Linux. This project enhances High-Fidelity music streaming while significantly reducing CPU consumption, making it ideal for low-power or resource-limited systems.
 
@@ -8,10 +8,14 @@ With a focus on efficiency and security, I have replaced outdated dependencies, 
 
 The main goal is to optimize the CPU consumption of the original code design (unmaintained as of 2021).
 
+# About repo
+
+This is the fork of the “Unofficial Deezer Player” repository, which has not been maintained since 2021. The project was struggling with outdated components (3 critical components were changed/repaired) and extremely high CPU consumption during music playback (over 150% on average).
+Wanting to continue listening to my favorite music in good quality on Linux, I decided to make some improvements and give the project a breath of fresh air!
 
 # Results After Optimization
 
-* CPU usage dropped FROM 150% TO ~20% while playing music
+* CPU usage dropped **from 150% to ~20%** while playing music
 * More stable performance, fewer spikes
 * Reduced memory & power consumption
 * Security enhancements
@@ -21,9 +25,9 @@ The main goal is to optimize the CPU consumption of the original code design (un
 
 1) CPU & GPU Optimization
 
-* Enabled hardware acceleration for smoother rendering and lower CPU usag
-* Reduced Chromium rendering FPS to prevent unnecessary CPU loa
-* Enabled hardware-accelerated media decoding to offload audio processing from CPU to GP
+* Enabled hardware acceleration for smoother rendering and lower CPU usage
+* Reduced Chromium rendering FPS to prevent unnecessary CPU load
+* Enabled hardware-accelerated media decoding to offload audio processing from CPU to GPU
 * Forced Chromium to run in "low-power mode" for lightweight performance
 
 2) JavaScript & Rendering Enhancements
@@ -39,19 +43,13 @@ The main goal is to optimize the CPU consumption of the original code design (un
 * Debounced database writes (prevents excessive file writes)
 
 
-# Muzic Player Features
+# Music Player Features
 
 * System tray icon
 * Background music play
 * Media keys support
 * Connection check
 * Reduced CPU consumption
-
-
-# Oryginal-unofficial Deezer project
-
-This is the fork of the “Unofficial Deezer Player” repository, which has not been maintained since 2021. The project was struggling with outdated components (3 critical components were changed/repaired) and extremely high CPU consumption during music playback (over 150% on average).
-Wanting to continue listening to my favorite music in good quality on Linux, I decided to make some improvements and give the project a breath of fresh air!
 
 
 # Build Instructions
@@ -64,3 +62,6 @@ To generate an executable file run this commands:
 
 > See the package.json file to see which script you should run. The generated files will bu available in src/dist directory.
 
+Execute locally from the project directory:
+
+* ``npx electron .``
