@@ -1,6 +1,6 @@
-# [[Deezer Lite Player (CPU optimized High Fidelity Music Player)]
+## Deezer Lite Player
 
-# Deezer Lite Player
+CPU optimized High Fidelity Music Player
 
 Deezer Lite Player is an optimized Electron-based desktop player for Deezer, designed for audiophiles and performance-conscious users on Linux. This project enhances High-Fidelity music streaming while significantly reducing CPU consumption, making it ideal for low-power or resource-limited systems.
 
