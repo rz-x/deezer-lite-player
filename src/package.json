@@ -5,7 +5,8 @@
     "main": "app.js",
     "author": "Radek Zdonczyk <radekzdonczyk@gmail.com>",
     "license": "MIT",
-    "homepage": "https://github.com/rz-x/deezer-lite-player",
+    "homepage": "github.com/rz-x/deezer-lite-player",
+    "fork": "github.com/fminetto/unofficial-deezer-player",
     "scripts": {
         "start": "node_modules/.bin/electron .",
         "build:linux": "node_modules/.bin/electron-builder --linux snap deb tar.xz AppImage",
