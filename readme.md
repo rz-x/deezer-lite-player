@@ -11,11 +11,10 @@ The main goal is to optimize the CPU consumption of the original code design (un
 
 # Results After Optimization
 
-	✅ CPU usage dropped from 150% → ~20% while playing music
-	
-	✅ More stable performance, fewer spikes
-	
-	✅ Reduced memory & power consumption
+* CPU usage dropped FROM 150% TO ~20% while playing music
+* More stable performance, fewer spikes
+* Reduced memory & power consumption
+* Security enhancements
 
 # General Optimization points
 
