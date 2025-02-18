@@ -58,10 +58,15 @@ To generate an executable file run this commands:
 
 * ``cd src;``
 * ``npm install; #or yarn install``
-* ``yarn build:linux #should generate deb, tar.xz, snap and AppImage files``
+* ``yarnpkg build:snap 	# 'build:linux' for other package formats``
 
-> See the package.json file to see which script you should run. The generated files will bu available in src/dist directory.
+> See the package.json file to see which script you should run. The generated files will be available in src/dist directory.
 
 Execute locally from the project directory:
 
 * ``npx electron .``
+
+Possible build isses solvers:
+
+* ``apt remove cmdtest && apt remove yarn && npm install -g yarn``
+* ``rm -rf node_modules && npm install``
