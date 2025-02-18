@@ -1,4 +1,4 @@
-[![Deezer Lite Player (CPU optimized High Fidelity Music Player)]
+# [[Deezer Lite Player (CPU optimized High Fidelity Music Player)]
 
 # Deezer Lite Player
 
@@ -8,32 +8,42 @@ With a focus on efficiency and security, I have replaced outdated dependencies, 
 
 The main goal is to optimize the CPU consumption of the original code design (unmaintained as of 2021).
 
-# 🔍 Results After Optimization
 
-✅ CPU usage dropped from 150% → ~20% while playing music
-✅ More stable performance, fewer spikes
-✅ Reduced memory & power consumption
+# Results After Optimization
+
+	✅ CPU usage dropped from 150% → ~20% while playing music
+	
+	✅ More stable performance, fewer spikes
+	
+	✅ Reduced memory & power consumption
 
 # General Optimization points
 
 1) CPU & GPU Optimization
 
-✅ Enabled hardware acceleration for smoother rendering and lower CPU usage
-✅ Reduced Chromium rendering FPS to prevent unnecessary CPU load
-✅ Enabled hardware-accelerated media decoding to offload audio processing from CPU to GPU
-✅ Forced Chromium to run in "low-power mode" for lightweight performance
+	✅ Enabled hardware acceleration for smoother rendering and lower CPU usage
+	
+	✅ Reduced Chromium rendering FPS to prevent unnecessary CPU load
+	
+	✅ Enabled hardware-accelerated media decoding to offload audio processing from CPU to GPU
+	
+	✅ Forced Chromium to run in "low-power mode" for lightweight performance
 
 2) JavaScript & Rendering Enhancements
 
-✅ Background throttling for Electron window (stops unnecessary re-rendering)
-✅ Suspends app execution when minimized (prevents CPU drain)
-✅ Offscreen rendering enabled (reduces load when app is hidden)
+	✅ Background throttling for Electron window (stops unnecessary re-rendering)
+	
+	✅ Suspends app execution when minimized (prevents CPU drain)
+	
+	✅ Offscreen rendering enabled (reduces load when app is hidden)
 
 3) Database & App Efficiency
 
-✅ Replaced nedb with nedb-promises (fixing security vulnerabilities)
-✅ Optimized database queries (cached data to reduce I/O operations)
-✅ Debounced database writes (prevents excessive file writes)
+	✅ Replaced nedb with nedb-promises (fixing security vulnerabilities)
+	
+	✅ Optimized database queries (cached data to reduce I/O operations)
+	
+	✅ Debounced database writes (prevents excessive file writes)
 
 
 # Muzic Player Features
