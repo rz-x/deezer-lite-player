@@ -2,7 +2,7 @@
 
 CPU optimized (High Fidelity) Music Player
 
-Deezer Lite Player is an optimized Electron-based desktop player for Deezer, designed for audiophiles and performance-conscious users on Linux. This project enhances High-Fidelity music streaming while significantly reducing CPU consumption, making it ideal for low-power or resource-limited systems.
+Deezer Lite Player is an optimized Electron-based desktop player for Deezer, designed for audiophiles and performance-conscious users on Linux. This project enhances High-Fidelity music streaming while significantly reducing CPU consumption, making it ideal for low-power or resource-limited desktops.
 
 With a focus on efficiency and security, I have replaced outdated dependencies, optimized database operations, and fine-tuned Electron’s rendering engine. The latest enhancements leverage hardware acceleration, background throttling, and low-power mode to deliver a smooth, lightweight music experience with up to 85% lower CPU usage. Enjoy the best audio quality without draining system resources!
 
@@ -38,8 +38,8 @@ Wanting to continue listening to my favorite music in good quality on Linux, I d
 
 3) Database & App Efficiency
 
-* Replaced nedb with nedb-promises (fixing security vulnerabilities
-* Optimized database queries (cached data to reduce I/O operations
+* Replaced nedb with nedb-promises (fixing security vulnerabilities)
+* Optimized database queries (cached data to reduce I/O operations)
 * Debounced database writes (prevents excessive file writes)
 
 
