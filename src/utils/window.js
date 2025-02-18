@@ -8,9 +8,12 @@ class Window extends BrowserWindow {
             title: "Deezer Player",
             icon: path.join(__dirname, '..', 'assets', 'dist_icon.png'),
             webPreferences: {
+                preload: path.join(__dirname, 'preload.js'),
                 nativeWindowOpen: true,
                 devTools: false,
-                contextIsolation: false
+                contextIsolation: false,
+                backgroundThrottling: true,
+                offscreen: false
             },
             backgroundColor: '#2e2c29',
             show: false

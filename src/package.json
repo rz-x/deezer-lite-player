@@ -25,11 +25,11 @@
         }
     },
     "devDependencies": {
-        "electron": "^11.1.0",
-        "electron-builder": "^22.9.1"
+        "electron": "^34.2.0",
+        "electron-builder": "^25.1.8"
     },
     "dependencies": {
-        "nedb": "^1.8.0",
+        "nedb-promises": "^6.2.3",
         "path": "^0.12.7"
     }
 }
