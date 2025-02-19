@@ -15,7 +15,7 @@ Wanting to continue listening to my favorite music in good quality on Linux, I d
 
 # Results After Optimization
 
-* CPU usage dropped **from 150% to ~20%** while playing music
+* CPU usage dropped **from >150% to "a few"%** while playing music
 * More stable performance, fewer spikes
 * Reduced memory & power consumption
 * Security enhancements
