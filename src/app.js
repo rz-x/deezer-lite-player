@@ -139,20 +139,18 @@ if (!gotTheLock) {
     app.commandLine.appendSwitch('enable-gpu-rasterization');
     app.commandLine.appendSwitch('enable-zero-copy');   
     app.commandLine.appendSwitch('enable-frame-rate-limit');
+    app.commandLine.appendSwitch('enable-native-gpu-memory-buffers');
+    app.commandLine.appendSwitch('ignore-gpu-blacklist');
+    app.commandLine.appendSwitch('disable-gpu-vsync');
+    app.commandLine.appendSwitch('enable-low-end-device-mode');
 
     // ~web~ enhancements
     app.commandLine.appendSwitch('enable-features', 'WebRTC-H264WithOpenH264FFmpeg');
-    app.commandLine.appendSwitch('enable-zero-copy');
-    app.commandLine.appendSwitch('ignore-gpu-blacklist');
-    app.commandLine.appendSwitch('disable-gpu-vsync');
-    app.commandLine.appendSwitch('enable-gpu-rasterization');
     app.commandLine.appendSwitch('force-color-profile', 'srgb');
-    app.commandLine.appendSwitch('enable-native-gpu-memory-buffers');
-
+    
     // Experiments
     app.commandLine.appendSwitch('disable-background-timer-throttling');
     app.commandLine.appendSwitch('disable-backgrounding-occluded-windows');
-    app.commandLine.appendSwitch('enable-low-end-device-mode');
 
     app.on('second-instance', (event, commandLine, workingDirectory) => {
         // Someone tried to run a second instance, we should focus our window.
@@ -180,10 +178,10 @@ async function saveData() {
     }, 1000);
 }
 
-let cachedData = null;  // Cache variable
+let cachedData = null;
 
 async function loadDatabase() {
-    if (!cachedData) { // If not already cached
+    if (!cachedData) { 
         cachedData = await db.findOne({});
     }
     return cachedData;
