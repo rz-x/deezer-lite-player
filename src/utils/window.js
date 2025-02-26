@@ -1,3 +1,4 @@
+const { ipcMain } = require('electron');
 const path = require('path'),
     { BrowserWindow, dialog } = require('electron');
 class Window extends BrowserWindow {
@@ -43,6 +44,20 @@ class Window extends BrowserWindow {
             this.hide();
             return false;
         })
+
+        ipcMain.on('tray-action', (event, action) => {
+            if (!this.webContents || this.webContents.isDestroyed()) return;
+            
+            if (action === 'playPause') {
+                this.webContents.executeJavaScript("dzPlayer.control.togglePause();");
+            } else if (action === 'next') {
+                this.webContents.executeJavaScript("dzPlayer.control.nextSong();");
+            } else if (action === 'prev') {
+                this.webContents.executeJavaScript("dzPlayer.control.prevSong();");
+            } else if (action === 'favorite') {
+                this.webContents.executeJavaScript("document.querySelectorAll('.player-bottom .track-actions button')[2].click();");
+            }
+        });
     }
 }
 

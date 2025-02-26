@@ -29,7 +29,9 @@ async function createWin() {
             win = new Window(app, url, electron.screen.getPrimaryDisplay().workAreaSize);
             singleton = win;
             register_mediaKeys();
-            update_tray();
+            win.once('ready-to-show', () => {
+                update_tray();
+            });
         } catch (err) {
             console.warn("Database error:", err.message);
         }
@@ -54,77 +56,69 @@ function register_mediaKeys() {
 
 function update_tray() {
     let model = [{
-        label: "Controls",
+        label: "[ Controls ]",
         enabled: false
     }, {
         label: "Play/Pause",
         enabled: true,
         click: () => {
-            win.webContents.executeJavaScript("window.dzPlayerControl.playPause();");
+            if (win && !win.isDestroyed()) {
+                win.webContents.executeJavaScript("dzPlayer.control.togglePause();")
+                .catch(err => console.error("Tray Play/Pause Error:", err));
+            }
         }
     }, {
         label: "Next",
         enabled: true,
         click: () => {
-            win.webContents.executeJavaScript("window.dzPlayerControl.next();");
+            if (win && !win.isDestroyed()) {
+                win.webContents.executeJavaScript("dzPlayer.control.nextSong();")
+                .catch(err => console.error("Tray Next Error:", err));
+            }
         }
     }, {
         label: "Previous",
         enabled: true,
         click: () => {
-            win.webContents.executeJavaScript("dzPlayer.control.prevSong()");
+            if (win && !win.isDestroyed()) {
+                win.webContents.executeJavaScript("dzPlayer.control.prevSong();")
+                .catch(err => console.error("Tray Prev Error:", err));
+            }
         }
     }, {
-        label: "Unfavourite/Favourite",
-        enabled: true,
-        click: () => {
-            win.webContents.executeJavaScript("document.querySelectorAll('.player-bottom .track-actions button')[2].click();");
-        }
-    }, {
-        label: "Volume",
-        enabled: false
-    }, {
-        label: "Volume UP",
-        enabled: true,
-        click: () => {
-            win.webContents.executeJavaScript(`vol = dzPlayer.volume; vol += ${consvol}; vol > 1 && (vol = 1); dzPlayer.control.setVolume(vol);`)
-        }
-    }, {
-        label: "Volume Down",
-        enabled: true,
-        click: () => {
-            win.webContents.executeJavaScript(`vol = dzPlayer.volume; vol -= ${consvol}; vol < 0 && (vol = 0); dzPlayer.control.setVolume(vol);`)
-        }
-    }, {
-        label: "Volume Mute",
-        enabled: true,
-        click: () => {
-            win.webContents.executeJavaScript("dzPlayer.control.mute(!dzPlayer.muted)")
-        }
-    }, {
-        label: "APP",
+        label: "[ APP ]",
         enabled: false
     }, {
         label: "Show Window",
         enabled: true,
         click: () => {
-            if (!win.isVisible())
-                win.restore();
+            if (win && !win.isVisible() && !win.isDestroyed()) {
+                win.show();
+                win.focus();
+            }
         }
     }, {
         label: "Quit",
         enabled: true,
         click: () => {
             saveData();
-            win.destroy()
-            app.quit()
+            win.destroy();
+            app.quit();
         }
     }];
-    tray.on("click", () => {
-        if (!win.isVisible())
-            win.restore();
-    })
-    tray.setContextMenu(new Menu.buildFromTemplate(model))
+    
+        tray.on("click", (event, bounds) => {
+        if (!win || win.isDestroyed()) return;
+
+        if (win.isVisible()) {
+            win.hide();
+        } else {
+            win.show();
+            win.focus();
+        }
+    });
+
+    tray.setContextMenu(Menu.buildFromTemplate(model));
 }
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -186,3 +180,4 @@ async function loadDatabase() {
     }
     return cachedData;
 }
+
