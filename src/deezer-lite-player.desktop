@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Deezer Lite Player
+Comment=Linux Deezer client with high-fidelity audio and lower CPU usage
+Exec=deezer-lite-player %U
+Icon=${SNAP}/usr/share/icons/deezer-lite-player.png
+Terminal=false
+Type=Application
+Categories=Audio;Music;Player;
+StartupWMClass=DeezerLitePlayer
+MimeType=x-scheme-handler/deezer;
+X-SnapInstanceName=deezer-lite-player
+
